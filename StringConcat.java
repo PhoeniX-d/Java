@@ -1,5 +1,8 @@
 import java.util.*;
 
+/*
+*   Program to concat two strings
+*/
 class StringConcat {
     public static void main(String argv[]) {
         Scanner sObj = new Scanner(System.in);

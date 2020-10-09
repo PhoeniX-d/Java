@@ -1,5 +1,8 @@
 import java.util.*;
 
+/*
+*   Program to compare two strings
+*/
 class StringCompare {
     public static void main(String argv[]) {
         Scanner sObj = new Scanner(System.in);

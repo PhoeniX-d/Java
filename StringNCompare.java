@@ -1,5 +1,8 @@
-import java.util.*;
+import java.util.Scanner;
 
+/*
+*   Program to compare two strings only first N characters
+*/
 class StringNCompare {
     public static void main(String argv[]) {
         Scanner sObj = new Scanner(System.in);
