@@ -4,7 +4,7 @@
 */
 import java.util.Scanner;
 
-class StringPatterns {
+class StringPatterns1 {
     public static void main(String argv[]) {
         Scanner sObj = new Scanner(System.in);
         String string = new String();

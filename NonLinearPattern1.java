@@ -4,7 +4,7 @@
 */
 import java.util.Scanner;
 
-class NonLinearPattern {
+class NonLinearPattern1 {
     public static void main(String argv[]) {
         Scanner sObj = new Scanner(System.in);
         int iRows = 0, iCols = 0;
