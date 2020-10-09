@@ -49,9 +49,7 @@ class NonLinearPattern {
 }
 
 class Patterns {
-    /*
-     * Input : iRow = 4 iCol = 4 Output : A B C D A B C D A B C D A B C D
-     */
+
     public void displayPattern1(int iRows, int iCols) {
         if (iRows < 0) {
             iRows = -iRows;
@@ -71,9 +69,6 @@ class Patterns {
         }
     }
 
-    /*
-     * Input : iRow = 4 iCol = 4 Output : A B C D a b c d A B C D a b c d
-     */
     public void displayPattern2(int iRows, int iCols) {
         if (iRows < 0) {
             iRows = -iRows;
@@ -97,9 +92,6 @@ class Patterns {
         }
     }
 
-    /*
-     * Input : iRow = 4 iCol = 4 Output : A A A A B B B B C C C C D D D D
-     */
     public void displayPattern3(int iRows, int iCols) {
         if (iRows < 0) {
             iRows = -iRows;
@@ -118,9 +110,6 @@ class Patterns {
         }
     }
 
-    /*
-     * Input : iRow = 4 iCol = 4 Output : 4 4 4 4 3 3 3 3 2 2 2 2 1 1 1 1
-     */
     public void displayPattern4(int iRows, int iCols) {
         if (iRows < 0) {
             iRows = -iRows;
@@ -137,9 +126,6 @@ class Patterns {
         }
     }
 
-    /*
-     * Input : iRow = 4 iCol = 4 Output : 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16
-     */
     public void displayPattern5(int iRows, int iCols) {
         if (iRows < 0) {
             iRows = -iRows;
@@ -174,9 +160,6 @@ class Patterns {
         }
     }
 
-    /*
-     * Input : iRow = 4 iCol = 4 Output : A B C D a b c d A B C D a b c d
-     */
     public void displayPattern7(int iRows, int iCols) {
         if (iRows < 0) {
             iRows = -iRows;
@@ -193,9 +176,6 @@ class Patterns {
         }
     }
 
-    /*
-     * Input : iRow = 4 iCol = 4 Output : A A A A B B B B C C C C D D D D
-     */
     public void displayPattern8(int iRows, int iCols) {
         if (iRows < 0) {
             iRows = -iRows;
@@ -212,9 +192,6 @@ class Patterns {
         }
     }
 
-    /*
-     * Input : iRow = 4 iCol = 4 Output : 4 4 4 4 3 3 3 3 2 2 2 2 1 1 1 1
-     */
     public void displayPattern9(int iRows, int iCols) {
         if (iRows < 0) {
             iRows = -iRows;
@@ -235,9 +212,6 @@ class Patterns {
         }
     }
 
-    /*
-     * Input : iRow = 4 iCol = 4 Output : 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16
-     */
     public void displayPattern10(int iRows, int iCols) {
         if (iRows < 0) {
             iRows = -iRows;
