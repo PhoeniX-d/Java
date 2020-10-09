@@ -1,6 +1,6 @@
 
 /*
-*   Program to search els in Array
+*   Program to display numbers in given range
 */
 import java.util.Scanner;
 
