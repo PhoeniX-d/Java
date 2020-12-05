@@ -8,11 +8,11 @@ class StringRevSol {
     public String strRev(String szLine) {
         int i = 0, j = szLine.length() - 1;
         char ch = '\0', cArr[] = szLine.toCharArray();
-        while (i < j) {
+        while (i < j) 
+        {
             ch = cArr[i];
             cArr[i] = cArr[j];
             cArr[j] = ch;
-
             i++;
             j--;
         }
