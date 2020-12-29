@@ -1,7 +1,26 @@
+abstract class P
+{
+	P(int i)
+	{
+		System.out.println(this.hashCode());
+	}
+}
+
+class C extends P
+{
+	C()
+	{
+		super(12);
+		System.out.println(this.hashCode());
+	}
+}
+
+
 public class Test 
 {
     public static void main(String args[])   
     {
+		/*
         int[] i = new int[3];
         float[] f = new float[2];
         char[] ch = new char[1];
@@ -21,5 +40,15 @@ public class Test
         System.out.println("double\t:" + d.getClass().getName());
         System.out.println("short\t:" + s.getClass().getName());
         System.out.println("String\t:" + str.getClass().getName());
-    }
+		*/
+
+	/*
+       int x = -4; 
+       System.out.println(x>>1);    
+       int y = 4; 
+       System.out.println(y>>1);    
+    */
+		C c = new C();
+		System.out.println(c.hashCode());
+	}
 }
