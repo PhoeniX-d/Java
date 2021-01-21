@@ -20,7 +20,7 @@ class Test
 
 	public static void main(String[] args)
 	{
-		/* Method resoultion at compile time by compiler in overloading */
+		/* Method resoultion at compile time by compiler based on reference type in overloading */
 		Test t = new Test();
 		Animal a = new Animal();
 		t.m1(a);
