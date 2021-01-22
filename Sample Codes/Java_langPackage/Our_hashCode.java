@@ -18,7 +18,10 @@ class Student
 	{
 		Student s1 = new Student("Ken", 100);
 		Student s2 = new Student("Ben", 102);
+		
+		String atr = new String("Jerry");
 
+		System.out.println(atr.hashCode());
 		System.out.println(s1.hashCode());
 		System.out.println(s2.hashCode());
 	}
