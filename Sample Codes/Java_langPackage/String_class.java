@@ -1,3 +1,4 @@
+
 class Test
 {
 	public static void main(String[] args)
@@ -12,6 +13,9 @@ class Test
 		String s5 = s4.toLowerCase();
 
 		System.out.println(s1 == s3);
+
+		String fruit = "Strawberry";
+		System.out.println(fruit.substring(5, 2));
 
 	}
 }
