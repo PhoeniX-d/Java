@@ -17,6 +17,7 @@ public class LinkedListDemo
         System.out.println(l);
         l.removeLast();
         l.addFirst("OnePiece");
+        l.remove();
         System.out.println(l);
         System.out.println(l.size());
         System.out.println(l instanceof Serializable);
