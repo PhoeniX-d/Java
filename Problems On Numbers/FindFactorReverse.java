@@ -1,7 +1,7 @@
-/* Program to find factors of a number */
+/* Program to find factors of a number in reverse order*/
 
 import java.util.Scanner;
-public class FindFactor 
+public class FindFactorReverse 
 {
     public static void main(String[] args) 
     {
@@ -24,7 +24,7 @@ public class FindFactor
        iNum = iNum < 0 ? -iNum : iNum;
        boolean flag = false;
        System.out.println("Factors are");
-       for(int i = 2; i <= iNum / 2; i++)
+       for(int i = iNum / 2; i >= 1; i--)
        {
             if(iNum % i == 0)
             {
@@ -34,14 +34,14 @@ public class FindFactor
        }
        if(flag == false)
        {
-           if(iNum == 1)
-           {
+            if(iNum == 1)
+            {
                 System.out.print(iNum);
-           }
-           else
-           {
-                System.out.print("1 " + iNum);
-           }
+            }
+            else
+            {
+                System.out.print(iNum + " 1");
+            }
        }
     }
 }

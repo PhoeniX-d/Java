@@ -1,7 +1,7 @@
-/* Program to find factors of a number */
+/* Program to find sum of factors */
 
 import java.util.Scanner;
-public class FindFactor 
+public class FactorSum
 {
     public static void main(String[] args) 
     {
@@ -15,33 +15,36 @@ public class FindFactor
             System.out.print("Cannot find factors of zero!!");
             System.exit(0);
         }
+
         sc.close();
-        factorsOf(iVal);
+        int iRet = factorSum(iVal);
+        System.out.print("Summation of factors is " + iRet);
     }
 
-    public static void factorsOf(int iNum)
+    public static int factorSum(int iNum)
     {
        iNum = iNum < 0 ? -iNum : iNum;
        boolean flag = false;
-       System.out.println("Factors are");
+       int iSum = 0;
        for(int i = 2; i <= iNum / 2; i++)
        {
             if(iNum % i == 0)
             {
-                System.out.print(i + " ");
+                iSum = iSum + i;
                 flag = true;
             }
        }
        if(flag == false)
        {
-           if(iNum == 1)
-           {
-                System.out.print(iNum);
-           }
-           else
-           {
-                System.out.print("1 " + iNum);
-           }
+            if(iNum == 1)
+            {
+                iSum = 1;
+            }
+            else
+            {
+                iSum = 1 + iNum;
+            }
        }
+       return iSum;
     }
 }
