@@ -1,20 +1,20 @@
-/* Program to calculate product of digits in a number which are odd */
+/* Program to calculate product of digits in a number */
 
 import java.util.Scanner;
-public class DigitProdOfOdd
+public class DigitProduct
 {
     public static void main(String[] args) 
     {
         long lVal = 0;
         int iMult = 0;
         Scanner sc = new Scanner(System.in);
-        System.out.print("Enter the  number\t\t\t= ");
+        System.out.print("Enter the  number\t\t= ");
         lVal = sc.nextLong();
         sc.close();
         int iRet = digitProd(lVal);
-        System.out.println("Product of odd digits is\t\t= " + iRet);
+        System.out.println("Product of digits is\t\t= " + iRet);
         iMult = digitProdRec(iMult, lVal);
-        System.out.println("Product of odd digits is(Recirsive)\t= " + iMult);
+        System.out.println("Product of digits is(Recirsive)\t= " + iMult);
     }
 
     public static int digitProd(long iNum)
@@ -24,7 +24,7 @@ public class DigitProdOfOdd
         while(iNum != 0)
         {
             iDigit = (int)iNum % 10;
-            if(iDigit % 2 != 0)
+            if(iDigit!= 0)
             {
                 if(iMult == 0)
                     iMult = 1;
@@ -44,7 +44,7 @@ public class DigitProdOfOdd
             return iMult;
         }
         iDigit = (int)(iNum % 10);
-        if(iDigit % 2 != 0)
+        if(iDigit != 0)
         {
             if(iMult == 0)
                 iMult = 1;
