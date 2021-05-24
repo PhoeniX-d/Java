@@ -18,9 +18,9 @@ public class IsKrishnamurthy
         
         boolean b = isKrishnamurthy(iNum);
         if(b == true)
-            System.out.println(iNum + " is Krishnamurthy number");
+            System.out.println(iNum + " is Krishnamurthy or Strong number");
         else
-            System.out.println(iNum + " is not Krishnamurthy number");
+            System.out.println(iNum + " is not Krishnamurthy or Strong number");
     }
 
     public static boolean isKrishnamurthy(int iNum)
