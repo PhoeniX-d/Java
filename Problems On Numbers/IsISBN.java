@@ -11,13 +11,11 @@ public class IsISBN
 {
     public static void main(String[] args)
     {
-        long lNum = 0;
+        String lNum = null;
         Scanner sc = new Scanner(System.in);
         System.out.print("Enter the number\t= ");
-        lNum = sc.nextLong();
+        lNum = sc.nextLine();
         sc.close();
-        lNum = lNum < 0 ? -lNum : lNum;
-        
         boolean b = isISBN(lNum);
         if(b == true)
             System.out.println(lNum + " is ISBN number");
@@ -25,16 +23,24 @@ public class IsISBN
             System.out.println(lNum + " is not ISBN number");
     }
 
-    public static boolean isISBN(long lNum)
+    public static boolean isISBN(String isbn)
     {
-        long lSum = 0;
-        int i = 1;
-        while(lNum > 0 && i < 11)
+        int iSum = 0, iDig = 0;
+        if(isbn.length() != 10)
+            return false;
+
+        for(int i = 0; i < 9; i++)
         {
-            lSum = lSum + (lNum % 10) * i;
-            i++;
-            lNum = lNum / 10;
+            iDig = isbn.charAt(i) - '0';
+            if(iDig >= 0 && iDig <= 9)
+            {
+                iSum = iSum + (iDig * (10 - i));
+            }
         }
-        return (lSum % 11 == 0);
+        
+        char last = isbn.charAt(9);        
+        iDig = (last == 'X') ? 10 : last - '0';
+        iSum = iSum + iDig;
+        return (iSum % 11 == 0);        
     }
 }
