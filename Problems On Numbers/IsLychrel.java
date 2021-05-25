@@ -16,6 +16,7 @@ public class IsLychrel
         boolean bRet = false;
         System.out.print("Enter the number\t= ");
         lNum = s.nextLong();
+        s.close();
         bRet = isLychrel(lNum);
         if(bRet == true)
         {
