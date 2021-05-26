@@ -17,12 +17,23 @@ public class IsAutomorphic
         sc.close();
 
         lNum = lNum < 0 ? -lNum : lNum;
-        
+        ///*
+        for(int i = 1; lNum > 0; i++)
+        {
+            if(isAutomorphic(i))
+            {
+                System.out.print(i + " ");
+                lNum--;
+            }
+        }
+       //*/
+       /*
         boolean b = isAutomorphic(lNum);
         if(b == true)
             System.out.println(lNum + " is Automorphic");
         else
             System.out.println(lNum + " is not Automorphic");
+        */
     }
 
     public static boolean isAutomorphic(long lNum)

@@ -12,10 +12,20 @@ public class IsUgly
     {
         Scanner s = new Scanner(System.in);
         int iNum = 0;
-        boolean bRet = false;
+        //boolean bRet = false;
         System.out.print("Enter the number\t= ");
         iNum = s.nextInt();
-        bRet = isUgly(iNum);
+        s.close();
+        iNum = iNum < 0 ? - iNum : iNum;
+        for(int i = 1; iNum > 0; i++)
+        {
+            if(isUgly(i))
+            {
+                System.out.print(i + " ");
+                iNum--;
+            }
+        }
+        /*bRet = isUgly(iNum);
         if(bRet == true)
         {
             System.out.println("It is an ugly number");
@@ -23,12 +33,12 @@ public class IsUgly
         else
         {
             System.out.println("It is not an ugly number");
-        }
+        }*/
     }
 
     public static boolean isUgly(int iNum)
     {
-        iNum = iNum < 0 ? - iNum : iNum;
+        //iNum = iNum < 0 ? - iNum : iNum;
         boolean bRet = true;
         while(iNum != 1)
         {
