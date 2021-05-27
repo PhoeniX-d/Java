@@ -2,7 +2,7 @@
     Accept number from user and display below pattern.   
 */
 import java.util.Scanner;
-public class NonLinearPattern3
+public class NonLinearPattern4
 {
     public static void main(String[] args)
     {
@@ -22,10 +22,10 @@ public class NonLinearPattern3
 
     /*
     Input   : iRow = 4 iCol = 4 
-    Output  : * 
-              * * 
-              * * * 
-              * * * *
+    Output  : * * * # 
+              * * # * 
+              * # * * 
+              # * * *
     */
     static void nonLinearPattern1(int iRow, int iCol)
     {
@@ -34,9 +34,12 @@ public class NonLinearPattern3
         System.out.println("\nNon Linear Pattern 1 :");
         for(int i = 1; i <= iRow; i++)
         {
-            for(int j = 1; j <= i; j++)
+            for(int j = 1; j <= iCol; j++)
             {
-                System.out.print("* ");
+                if(j == (iCol - i + 1))
+                    System.out.print("# ");
+                else 
+                    System.out.print("* ");
             }
             System.out.println();
         }
@@ -44,10 +47,10 @@ public class NonLinearPattern3
 
    /*
     Input   : iRow = 4 iCol = 4 
-    Output  : * * * *
-              * * *
-              * * 
-              *
+    Output  : * * * # 
+              * * # @ 
+              * # @ @ 
+              # @ @ @ 
     */
     static void nonLinearPattern2(int iRow, int iCol)
     {
@@ -56,21 +59,27 @@ public class NonLinearPattern3
         System.out.println("\nNon Linear Pattern 2 :");
         for(int i = 1; i <= iRow; i++)
         {
-            for(int j = 1; j <= iCol - i + 1; j++)
+            for(int j = 1; j <= iCol; j++)
             {
-                System.out.print("* ");
+                if( j == (iCol - i + 1))
+                    System.out.print("# ");
+                else if( j < (iCol - i + 1))
+                    System.out.print("* ");
+                else
+                    System.out.print("@ ");
             }
             System.out.println();
         }
     }
 
     /*
-    Input   : iRow = 5 iCol = 5 
-    Output  : $ * * * * 
-              # $ * * * 
-              # # $ * * 
-              # # # $ * 
-              # # # # $
+    Input    : iRow = 6 iCol = 6 
+    Output   : * * * * * * 
+               *       * * 
+               *     *   * 
+               *   *     * 
+               * *       * 
+               * * * * * *
     */
     static void nonLinearPattern3(int iRow, int iCol)
     {
@@ -86,24 +95,23 @@ public class NonLinearPattern3
         {
             for(int j = 1; j <= iCol; j++)
             {
-                if(i == j)
-                    System.out.print("$ ");
-                else if(j < i)
-                    System.out.print("# ");
-                else
+                if(i == 1 || i == iRow || j == 1 || j == iCol || (j - 1) == (iCol - i))
                     System.out.print("* ");
+                else 
+                    System.out.print("  ");
             }
             System.out.println();
         }
     }
 
     /*
-    Input   : iRow = 5 iCol = 5 
-    Output  : * * * * * 
-              * *     * 
-              *   *   * 
-              *     * * 
-              * * * * * 
+    Input   : iRow = 6 iCol = 6 
+    Output  : * * * * * * 
+              * # # # * * 
+              * # # * $ * 
+              * # * $ $ * 
+              * * $ $ $ * 
+              * * * * * *
     */
     static void nonLinearPattern4(int iRow, int iCol)
     {
@@ -119,10 +127,10 @@ public class NonLinearPattern3
         {
             for(int j = 1; j <= iCol; j++)
             {
-                if(i == 1 || i == iRow || j == 1 || j == iCol || i == j)
+                if(i == 1 || i == iRow || j == 1 || j == iCol || (j - 1) == (iCol - i))
                     System.out.print("* ");
-                else
-                    System.out.print("  ");
+                else 
+                    System.out.print("$ ");
             }
             System.out.println();
         }
@@ -130,10 +138,11 @@ public class NonLinearPattern3
 
     /*
     Input   : iRow = 4 iCol = 4 
-    Output  : 1 2 3 4 
-                2 3 4
-                  3 4
-                    4
+    Output  : 1 2 3 4 5 
+              1 2     5 
+              1   3   5 
+              1     4 5 
+              1 2 3 4 5
     */
     static void nonLinearPattern5(int iRow, int iCol)
     {
@@ -149,7 +158,7 @@ public class NonLinearPattern3
         {
             for(int j = 1; j <= iCol; j++)
             {
-                if(j >= i)
+                if(i == 1 || i == iRow || j == 1 || j == iCol || j == i)
                     System.out.print(j + " ");
                 else
                     System.out.print("  ");
