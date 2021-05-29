@@ -451,15 +451,17 @@ public class NonLinearPattern6
     /*
     Input   : 5
     Output  : Hollow Diamond
-                      *         
-                    *   *       
-                  *       *     
-                *           *   
-              *               * 
-                *           *   
-                  *       *     
-                    *   *       
-                      *        
+              A
+            B   B
+          C       C
+        D           D
+      E               E
+    F                   F
+      E               E
+        D           D
+          C       C
+            B   B
+              A
             
     */
     static void nonLinearPattern11(int iNum)
@@ -504,5 +506,4 @@ public class NonLinearPattern6
             System.out.println();
         }
     }
-
 }
