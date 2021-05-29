@@ -170,13 +170,13 @@ public class NonLinearPattern5
     /*
     Input   : 5
     Output  :        *
-                   * * *
-                 * * * * *   
-               * * * * * * *
-             * * * * * * * * * 
-               * * * * * * *
-                 * * * * *
-                   * * * 
+                   *   *
+                 *   *   *   
+               *   *   *   *
+             *   *   *   *   * 
+               *   *   *   *
+                 *   *   *
+                   *   * 
                      *
     */
     static void nonLinearPattern5(int iNum)
@@ -258,11 +258,11 @@ public class NonLinearPattern5
      /*
     Input   : 5
     Output  :  
-            *   *   *   *   * 
-              *   *   *   *   
-                *   *   *     
-                  *   *       
-                    *         
+             * * * * * * * * * 
+               * * * * * * *
+                 * * * * *
+                   * * * 
+                     *        
     */
     static void nonLinearPattern7(int iNum)
     {
