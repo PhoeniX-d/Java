@@ -1,5 +1,5 @@
 import java.sql.*;
-public class SelectAllRowsDemo
+public class SelectParticularColumnsDemo
 	{
 	public static void main(String[] args) throws Exception
 	{
@@ -11,17 +11,16 @@ public class SelectAllRowsDemo
 		try(Connection con = DriverManager.getConnection(jdbc_url,user,pwd))
 		{
 			Statement st = con.createStatement();
-			String sqlQuery="select * from employee";
-			//String sqlQuery="select * from employee where sal > 12000";
+			String sqlQuery="select ename, sal, city from employee";
 			boolean flag= false;
 			ResultSet rs =st.executeQuery(sqlQuery);
-			System.out.println("EID\tENAME\tECITY\tSAL");
+			System.out.println("ENAME\tSAL\tCITY");
 			System.out.println("--------------------------------------");
 			while(rs.next())
 			{
 				flag = true;
-				//System.out.println(rs.getInt("eid")+"\t"+rs.getString("ename")+"\t"+rs.getString("city")+"\t"+rs.getFloat("sal"));
-				System.out.println(rs.getInt(1)+"\t"+rs.getString(2)+"\t"+rs.getString(3)+"\t"+rs.getFloat(4));
+				//System.out.println(rs.getString("ename")+"\t"+rs.getFloat("sal")+"\t"+rs.getString("city"));
+				System.out.println(rs.getString(1)+"\t"+rs.getFloat(2)+"\t"+rs.getString(3));
 			}
 			if(flag == false)
 			{

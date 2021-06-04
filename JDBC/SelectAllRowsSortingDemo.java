@@ -1,5 +1,5 @@
 import java.sql.*;
-public class SelectAllRowsDemo
+public class SelectAllRowsSortingDemo
 	{
 	public static void main(String[] args) throws Exception
 	{
@@ -11,8 +11,7 @@ public class SelectAllRowsDemo
 		try(Connection con = DriverManager.getConnection(jdbc_url,user,pwd))
 		{
 			Statement st = con.createStatement();
-			String sqlQuery="select * from employee";
-			//String sqlQuery="select * from employee where sal > 12000";
+			String sqlQuery="select * from employee order by sal desc";
 			boolean flag= false;
 			ResultSet rs =st.executeQuery(sqlQuery);
 			System.out.println("EID\tENAME\tECITY\tSAL");
