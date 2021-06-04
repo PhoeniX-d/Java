@@ -1,6 +1,6 @@
 import java.sql.*;
 
-public class UpdateSingleRowDemo
+public class DeleteSingleRowDemo
 {
 	public static void main(String[] args) throws Exception
 	{
@@ -8,7 +8,7 @@ public class UpdateSingleRowDemo
 		String DRIVER = "oracle.jdbc.OracleDriver";
 		String USER = "xe";
 		String PWD = "xe";
-		String SQL_QUERY = "update player set pcity = 'Delhi' where pname = 'Kohli'";
+		String SQL_QUERY = "delete from employee where eid = 16";
 
 		try(Connection con = DriverManager.getConnection(URL, USER, PWD))
 		{

@@ -1,6 +1,7 @@
 import java.sql.*;
+import java.util.Scanner;
 
-public class UpdateSingleRowDemo
+public class UpdateMultiplesRowsDemo
 {
 	public static void main(String[] args) throws Exception
 	{
@@ -8,11 +9,16 @@ public class UpdateSingleRowDemo
 		String DRIVER = "oracle.jdbc.OracleDriver";
 		String USER = "xe";
 		String PWD = "xe";
-		String SQL_QUERY = "update player set pcity = 'Delhi' where pname = 'Kohli'";
 
-		try(Connection con = DriverManager.getConnection(URL, USER, PWD))
+		try(Connection con = DriverManager.getConnection(URL, USER, PWD);
+			Scanner sc = new Scanner(System.in))
 		{
 			Statement st = con.createStatement();
+			System.out.print("Enter Bonus Amount\t:");
+			float bonus = sc.nextFloat();
+			System.out.print("Enter salary range\t:");
+			float salRange = sc.nextFloat();
+			String SQL_QUERY = String.format("update employee set sal = sal + %f where sal < %f", bonus, salRange);
 			int updateCount = st.executeUpdate(SQL_QUERY);
 			System.out.println("The Number of Rows updated :" + updateCount);
 		}
