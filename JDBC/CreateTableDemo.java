@@ -13,7 +13,7 @@ public class CreateTableDemo
 		try(Connection con = DriverManager.getConnection(URL, USER, PWD))
 		{
 			Statement st = con.createStatement();
-			st.executeUpdate(SQL_QUERY);
+			System.out.println(st.executeUpdate(SQL_QUERY));
 			System.out.println("Table Created Successfully");
 		}
 		catch(Exception e)

@@ -8,7 +8,7 @@ public class DeleteTableDemo
 		String DRIVER = "oracle.jdbc.OracleDriver";
 		String USER = "xe";
 		String PWD = "xe";
-		String SQL_QUERY = "drop table player";
+		String SQL_QUERY = "drop table players";
 
 		try(Connection con = DriverManager.getConnection(URL, USER, PWD))
 		{
