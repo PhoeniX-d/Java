@@ -14,7 +14,7 @@ public class SelectAllRowsDemo
 			String sqlQuery="select * from employee";
 			//String sqlQuery="select * from employee where sal > 12000";
 			boolean flag= false;
-			System.out.println(st.executeUpdate(sqlQuery));
+			//System.out.println(st.executeUpdate(sqlQuery));
 			
 			ResultSet rs = st.executeQuery(sqlQuery);
 			System.out.println("EID\tENAME\tECITY\tSAL");
