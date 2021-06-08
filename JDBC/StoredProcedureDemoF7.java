@@ -13,28 +13,23 @@ END;
 */
 
 import java.sql.*;
-import oracle.jdbc.*;   /* for OracleTyes.CURSOR and it is present in ojdbc6.jar */
+import oracle.jdbc.*; /* for OracleTyes.CURSOR and it is present in ojdbc6.jar */
 import java.util.Scanner;
-public class StoredProcedureDemoF7
-{
+
+public class StoredProcedureDemoF7 {
     public static void main(String[] args) {
-        java.util.Properties p = new java.util.Properties();		
-		try
-        {
+        java.util.Properties p = new java.util.Properties();
+        try {
             java.io.FileInputStream fis = new java.io.FileInputStream(".\\..\\..\\db.properties");
             p.load(fis);
-        }
-        catch(Exception e)
-        {
+        } catch (Exception e) {
             e.printStackTrace();
         }
-		String jdbc_url = p.getProperty("OracleURL");
-		String user = p.getProperty("OracleUser");
-		String pwd = p.getProperty("OraclePwd");
-        
-        try(Connection con = DriverManager.getConnection(jdbc_url, user, pwd);
-        Scanner sc = new Scanner(System.in))
-        {
+        String jdbc_url = p.getProperty("OracleURL");
+        String user = p.getProperty("OracleUser");
+        String pwd = p.getProperty("OraclePwd");
+
+        try (Connection con = DriverManager.getConnection(jdbc_url, user, pwd); Scanner sc = new Scanner(System.in)) {
             CallableStatement cst = con.prepareCall("{ ?= call getAvg(?, ?)}");
             System.out.print("Enter the eid of employee 1\t:");
             int id1 = sc.nextInt();
@@ -43,18 +38,14 @@ public class StoredProcedureDemoF7
             cst.setInt(2, id1);
             cst.setInt(3, id2);
             cst.registerOutParameter(1, Types.FLOAT);
-            try{
+            try {
                 cst.execute();
+            } catch (SQLException e) {
+                System.out.println("No record found !!");
+                System.exit(0);
             }
-            catch(SQLException e)
-            {
-                 System.out.println("No record found !!");
-                 System.exit(0);
-            }
-            ResultSet rs = (ResultSet)cst.getObject(1);
-        }
-        catch(SQLException e)
-        {
+            ResultSet rs = (ResultSet) cst.getObject(1);
+        } catch (SQLException e) {
             e.printStackTrace();
         }
     }

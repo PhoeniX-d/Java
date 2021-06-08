@@ -12,52 +12,40 @@ import java.sql.SQLException;
 *   @Company : -
 */
 
-public class JDBCUtil
-{
-    static
-    {        
-        try
-        {
+public class JDBCUtil {
+    static {
+        try {
             Class.forName("oracle.jdbc.OracleDriver");
-        }
-        catch(ClassNotFoundException e)
-        {
+        } catch (ClassNotFoundException e) {
             e.printStackTrace();
         }
     }
-    public static Connection getOracleConnection() throws SQLException
-    {
-        java.util.Properties p = new java.util.Properties();		
-		try
-        {
+
+    public static Connection getOracleConnection() throws SQLException {
+        java.util.Properties p = new java.util.Properties();
+        try {
             java.io.FileInputStream fis = new java.io.FileInputStream(".\\..\\..\\db.properties");
             p.load(fis);
-        }
-        catch(Exception e)
-        {
+        } catch (Exception e) {
             e.printStackTrace();
         }
-		String jdbc_url = p.getProperty("OracleURL");
-		String user = p.getProperty("OracleUser");
-		String pwd = p.getProperty("OraclePwd");
-        
+        String jdbc_url = p.getProperty("OracleURL");
+        String user = p.getProperty("OracleUser");
+        String pwd = p.getProperty("OraclePwd");
+
         Connection con = DriverManager.getConnection(jdbc_url, user, pwd);
         return con;
     }
-       
-    public static void cleanup(Connection con, Statement st, ResultSet rs)
-    {
-        try
-        {
-            if(rs != null)
+
+    public static void cleanup(Connection con, Statement st, ResultSet rs) {
+        try {
+            if (rs != null)
                 rs.close();
-            if(st != null)
+            if (st != null)
                 st.close();
-            if(con != null)
+            if (con != null)
                 con.close();
-        }
-        catch(SQLException e)
-        {
+        } catch (SQLException e) {
             e.printStackTrace();
         }
     }

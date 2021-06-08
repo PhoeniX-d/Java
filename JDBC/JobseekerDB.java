@@ -7,34 +7,27 @@ import java.text.*;
 
 public class JobseekerDB {
     public static void main(String[] args) {
-        java.util.Properties p = new java.util.Properties();		
-		try
-        {
+        java.util.Properties p = new java.util.Properties();
+        try {
             java.io.FileInputStream fis = new java.io.FileInputStream(".\\..\\..\\db.properties");
             p.load(fis);
-        }
-        catch(Exception e)
-        {
+        } catch (Exception e) {
             e.printStackTrace();
         }
-		String jdbc_url = p.getProperty("OracleURL");
-		String user = p.getProperty("OracleUser");
-		String pwd = p.getProperty("OraclePwd");
-        
+        String jdbc_url = p.getProperty("OracleURL");
+        String user = p.getProperty("OracleUser");
+        String pwd = p.getProperty("OraclePwd");
+
         String name = "Alan";
         String dob = "28-05-1988";
         String pic = "image1.jpg";
         String resume = "AlanResume.txt";
-        
-        try
-        (
-            Connection  con = DriverManager.getConnection(jdbc_url, user, pwd);
-            FileInputStream fis = new FileInputStream(pic);
-            FileReader fr = new FileReader(resume);
-            FileOutputStream fos = new FileOutputStream("updatedimage1.jpg");
-            PrintWriter pw = new PrintWriter("upatedAlanResume.txt");
-        )
-        {
+
+        try (Connection con = DriverManager.getConnection(jdbc_url, user, pwd);
+                FileInputStream fis = new FileInputStream(pic);
+                FileReader fr = new FileReader(resume);
+                FileOutputStream fos = new FileOutputStream("updatedimage1.jpg");
+                PrintWriter pw = new PrintWriter("upatedAlanResume.txt");) {
             PreparedStatement ps = con.prepareStatement("insert into jobseeker values(?, ?, ?, ?)");
             SimpleDateFormat sdf = new SimpleDateFormat("dd-MM-yyyy");
             java.util.Date udate = sdf.parse(dob);
@@ -44,7 +37,7 @@ public class JobseekerDB {
             ps.setDate(2, sdate);
             ps.setBinaryStream(3, fis);
             ps.setCharacterStream(4, fr);
-            if(ps.executeUpdate() == 0)
+            if (ps.executeUpdate() == 0)
                 System.out.println("Record not inserted!!");
             else
                 System.out.println("Record inserted successfully.....");
@@ -52,8 +45,7 @@ public class JobseekerDB {
             System.out.println("Reading Record....");
             ps = con.prepareStatement("select * from jobseeker");
             ResultSet rs = ps.executeQuery();
-            if(rs.next())
-            {
+            if (rs.next()) {
                 // read name
                 System.out.println("Name of Person\t: " + rs.getString(1));
 
@@ -63,35 +55,27 @@ public class JobseekerDB {
 
                 // reading BLOB (image)
                 InputStream is = rs.getBinaryStream(3);
-                byte []b = new byte[1024];
-                while(is.read(b) > 0)
-                {
+                byte[] b = new byte[1024];
+                while (is.read(b) > 0) {
                     fos.write(b);
                 }
                 fos.flush();
 
                 // reading CLOB (txt)
-                Reader r= rs.getCharacterStream(4);
-                char []c = new char[1024];
-                while(r.read(c) > 0)
-                {
+                Reader r = rs.getCharacterStream(4);
+                char[] c = new char[1024];
+                while (r.read(c) > 0) {
                     pw.write(c);
                 }
                 pw.flush();
 
             }
             System.out.println("Record achieved successfully....");
-        }
-        catch(SQLException se)
-        {
+        } catch (SQLException se) {
             se.printStackTrace();
-        }
-        catch(FileNotFoundException fnfe)
-        {
+        } catch (FileNotFoundException fnfe) {
             fnfe.printStackTrace();
-        }
-        catch(Exception e)
-        {
+        } catch (Exception e) {
             e.printStackTrace();
         }
     }
