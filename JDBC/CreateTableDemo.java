@@ -4,13 +4,22 @@ public class CreateTableDemo
 {
 	public static void main(String[] args) throws Exception
 	{
-		String URL = "jdbc:oracle:thin:@localhost:1521:XE";
-		String DRIVER = "oracle.jdbc.OracleDriver";
-		String USER = "xe";
-		String PWD = "xe";
+		java.util.Properties p = new java.util.Properties();		
+		try
+        {
+            java.io.FileInputStream fis = new java.io.FileInputStream(".\\..\\..\\db.properties");
+            p.load(fis);
+        }
+        catch(Exception e)
+        {
+            e.printStackTrace();
+        }
+		String jdbc_url = p.getProperty("OracleURL");
+		String user = p.getProperty("OracleUser");
+		String pwd = p.getProperty("OraclePwd");
 		String SQL_QUERY = "create table player(pid number, pname varchar2(20), pcity varchar2(20), pteam varchar2(15))";
 
-		try(Connection con = DriverManager.getConnection(URL, USER, PWD))
+	    try(Connection con = DriverManager.getConnection(jdbc_url, user, pwd))
 		{
 			Statement st = con.createStatement();
 			System.out.println(st.executeUpdate(SQL_QUERY));

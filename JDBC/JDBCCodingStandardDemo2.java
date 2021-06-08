@@ -19,7 +19,7 @@ public class JDBCCodingStandardDemo2
         Connection con = null;
         Statement st = null;
         ResultSet rs = null;
-
+        
         try
         {
             con = JDBCUtil.getOracleConnection();

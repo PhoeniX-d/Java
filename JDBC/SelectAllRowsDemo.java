@@ -3,10 +3,12 @@ public class SelectAllRowsDemo
 	{
 	public static void main(String[] args) throws Exception
 	{
-		String driver="oracle.jdbc.OracleDriver";
-		String jdbc_url="jdbc:oracle:thin:@localhost:1521:XE";
-		String user="xe";
-		String pwd="xe";
+		java.util.Properties p = new java.util.Properties();
+		java.io.FileInputStream fis = new java.io.FileInputStream(".\\..\\..\\db.properties");
+		p.load(fis);
+		String jdbc_url = p.getProperty("OracleURL");
+		String user = p.getProperty("OracleUser");
+		String pwd = p.getProperty("OraclePwd");
 		
 		try(Connection con = DriverManager.getConnection(jdbc_url,user,pwd))
 		{

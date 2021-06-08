@@ -13,10 +13,21 @@ import oracle.jdbc.*;   /* for OracleTyes.CURSOR and it is present in ojdbc6.jar
 public class StoredProcedureDemoC4
 {
     public static void main(String[] args) {
-        String jdbcurl = "jdbc:oracle:thin:@localhost:1521:XE";
-        String user = "xe";
-        String pwd = "xe";
-        try(Connection con = DriverManager.getConnection(jdbcurl, user, pwd))
+        java.util.Properties p = new java.util.Properties();		
+		try
+        {
+            java.io.FileInputStream fis = new java.io.FileInputStream(".\\..\\..\\db.properties");
+            p.load(fis);
+        }
+        catch(Exception e)
+        {
+            e.printStackTrace();
+        }
+		String jdbc_url = p.getProperty("OracleURL");
+		String user = p.getProperty("OracleUser");
+		String pwd = p.getProperty("OraclePwd");
+        
+        try(Connection con = DriverManager.getConnection(jdbc_url, user, pwd))
         {
             CallableStatement cst = con.prepareCall("{call getEmpInfo(?)}");
             cst.registerOutParameter(1, OracleTypes.CURSOR);

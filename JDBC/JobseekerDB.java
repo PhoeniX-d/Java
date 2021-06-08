@@ -7,9 +7,20 @@ import java.text.*;
 
 public class JobseekerDB {
     public static void main(String[] args) {
-        String jdbcurl = "jdbc:oracle:thin:@localhost:1521:XE";
-        String user = "xe";
-        String pwd = "xe";
+        java.util.Properties p = new java.util.Properties();		
+		try
+        {
+            java.io.FileInputStream fis = new java.io.FileInputStream(".\\..\\..\\db.properties");
+            p.load(fis);
+        }
+        catch(Exception e)
+        {
+            e.printStackTrace();
+        }
+		String jdbc_url = p.getProperty("OracleURL");
+		String user = p.getProperty("OracleUser");
+		String pwd = p.getProperty("OraclePwd");
+        
         String name = "Alan";
         String dob = "28-05-1988";
         String pic = "image1.jpg";
@@ -17,7 +28,7 @@ public class JobseekerDB {
         
         try
         (
-            Connection  con = DriverManager.getConnection(jdbcurl, user, pwd);
+            Connection  con = DriverManager.getConnection(jdbc_url, user, pwd);
             FileInputStream fis = new FileInputStream(pic);
             FileReader fr = new FileReader(resume);
             FileOutputStream fos = new FileOutputStream("updatedimage1.jpg");

@@ -5,11 +5,25 @@ public class ConnectionPoolMysqlDemo
 	{
 	public static void main(String[] args) throws Exception
 	{
+		java.util.Properties p = new java.util.Properties();		
+		try
+        {
+            java.io.FileInputStream fis = new java.io.FileInputStream(".\\..\\..\\db.properties");
+            p.load(fis);
+        }
+        catch(Exception e)
+        {
+            e.printStackTrace();
+        }
+		String jdbc_url = p.getProperty("MysqlURL");
+		String user = p.getProperty("MysqlUser");
+		String pwd = p.getProperty("MysqlPwd");
+
         MysqlConnectionPoolDataSource ds = new MysqlConnectionPoolDataSource();
 
-        ds.setURL("jdbc:mysql://localhost:3306/jdbcdb");
-        ds.setUser("root");
-        ds.setPassword("");
+        ds.setURL(jdbc_url);
+        ds.setUser(user);
+        ds.setPassword(pwd);
 
 		
 		try(Connection con = ds.getConnection())

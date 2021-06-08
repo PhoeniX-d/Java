@@ -4,16 +4,24 @@ public class DeleteSingleRowDemo
 {
 	public static void main(String[] args) throws Exception
 	{
-		String URL = "jdbc:oracle:thin:@localhost:1521:XE";
-		//String DRIVER = "oracle.jdbc.OracleDriver";
-		String USER = "xe";
-		String PWD = "xe";
-		String SQL_QUERY = "delete employee where eid=6";
-
-		try(Connection con = DriverManager.getConnection(URL, USER, PWD))
+		java.util.Properties p = new java.util.Properties();		
+		try
+        {
+            java.io.FileInputStream fis = new java.io.FileInputStream(".\\..\\..\\db.properties");
+            p.load(fis);
+        }
+        catch(Exception e)
+        {
+            e.printStackTrace();
+        }
+		String jdbc_url = p.getProperty("OracleURL");
+		String user = p.getProperty("OracleUser");
+		String pwd = p.getProperty("OraclePwd");
+        
+        try(Connection con = DriverManager.getConnection(jdbc_url, user, pwd))
 		{
 			Statement st = con.createStatement();
-			int updateCount = st.executeUpdate(SQL_QUERY);
+			int updateCount = st.executeUpdate("delete users where name = 'Lalit'");
 			System.out.println("The Number of Rows updated :" + updateCount);
 		}
 		catch(Exception e)

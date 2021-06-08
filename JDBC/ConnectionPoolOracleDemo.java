@@ -5,11 +5,24 @@ public class ConnectionPoolOracleDemo
 	{
 	public static void main(String[] args) throws Exception
 	{
-        OracleConnectionPoolDataSource ds = new OracleConnectionPoolDataSource();
+		java.util.Properties p = new java.util.Properties();		
+		try
+        {
+            java.io.FileInputStream fis = new java.io.FileInputStream(".\\..\\..\\db.properties");
+            p.load(fis);
+        }
+        catch(Exception e)
+        {
+            e.printStackTrace();
+        }
+		String jdbc_url = p.getProperty("OracleURL");
+		String user = p.getProperty("OracleUser");
+		String pwd = p.getProperty("OraclePwd");
 
-        ds.setURL("jdbc:oracle:thin:@localhost:1521:XE");
-        ds.setUser("xe");
-        ds.setPassword("xe");
+        OracleConnectionPoolDataSource ds = new OracleConnectionPoolDataSource();
+        ds.setURL(jdbc_url);
+        ds.setUser(user);
+        ds.setPassword(pwd);
 
 		
 		try(Connection con = ds.getConnection())

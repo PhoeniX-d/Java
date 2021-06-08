@@ -1,16 +1,25 @@
 import java.sql.*;
 import java.util.Scanner;
 
-public class SelectRangeOfRecordsDemo2
+public class SelectRangeOfRecordsDemo3
 	{
 	public static void main(String[] args) throws Exception
 	{
-		String driver="oracle.jdbc.OracleDriver";
-		String jdbc_url="jdbc:oracle:thin:@localhost:1521:XE";
-		String user="xe";
-		String pwd="xe";
-		
-		try(Connection con = DriverManager.getConnection(jdbc_url,user,pwd);
+		java.util.Properties p = new java.util.Properties();		
+		try
+        {
+            java.io.FileInputStream fis = new java.io.FileInputStream(".\\..\\..\\db.properties");
+            p.load(fis);
+        }
+        catch(Exception e)
+        {
+            e.printStackTrace();
+        }
+		String jdbc_url = p.getProperty("OracleURL");
+		String user = p.getProperty("OracleUser");
+		String pwd = p.getProperty("OraclePwd");
+        
+        try(Connection con = DriverManager.getConnection(jdbc_url, user, pwd);
 			Scanner sc = new Scanner(System.in))
 		{
 			Statement st = con.createStatement();

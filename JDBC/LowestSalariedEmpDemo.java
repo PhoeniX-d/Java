@@ -1,15 +1,26 @@
 import java.util.Scanner;
 import java.sql.*;
 
-public class LowestSalriedEmpDemo
+public class LowestSalariedEmpDemo
 {
 	public static void main(String[] args)throws SQLException
 	{
-		String jdbcurl = "jdbc:oracle:thin:@localhost:1521:XE";
-		String user = "xe";
-		String pwd = "xe";
+		java.util.Properties p = new java.util.Properties();		
+		try
+        {
+            java.io.FileInputStream fis = new java.io.FileInputStream(".\\..\\..\\db.properties");
+            p.load(fis);
+        }
+        catch(Exception e)
+        {
+            e.printStackTrace();
+        }
+		String jdbc_url = p.getProperty("OracleURL");
+		String user = p.getProperty("OracleUser");
+		String pwd = p.getProperty("OraclePwd");
+
 		String sql_query = "select * from employee where sal = (select min(sal) from employee)";
-		try(Connection con = DriverManager.getConnection(jdbcurl, user, pwd))
+		try(Connection con = DriverManager.getConnection(jdbc_url, user, pwd))
 		{
 			Statement st = con.createStatement();
 			ResultSet rs = st.executeQuery(sql_query);

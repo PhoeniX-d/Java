@@ -28,9 +28,23 @@ public class JDBCCodingStandardDemo1
         Connection con = null;
         Statement st = null;
         ResultSet rs = null;
+        java.util.Properties p = new java.util.Properties();		
+		try
+        {
+            java.io.FileInputStream fis = new java.io.FileInputStream(".\\..\\..\\db.properties");
+            p.load(fis);
+        }
+        catch(Exception e)
+        {
+            e.printStackTrace();
+        }
+		String jdbc_url = p.getProperty("OracleURL");
+		String user = p.getProperty("OracleUser");
+		String pwd = p.getProperty("OraclePwd");
+        
         try
         {
-            con = DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:XE", "xe", "xe");
+            con = DriverManager.getConnection(jdbc_url, user, pwd);
             st = con.createStatement();
             rs = st.executeQuery("SELECT * FROM EMPLOYEE");
             System.out.println("EID\tENAME\tECITY\tSAL");

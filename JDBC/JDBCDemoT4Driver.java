@@ -7,7 +7,21 @@ public class JDBCDemoT4Driver {
         /*Class.forName("oracle.jdbc.OracleDriver");*/
         
         /* Type 4 Driver URL */
-        try(Connection con = DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:XE", "xe", "xe"))
+        java.util.Properties p = new java.util.Properties();		
+		try
+        {
+            java.io.FileInputStream fis = new java.io.FileInputStream(".\\..\\..\\db.properties");
+            p.load(fis);
+        }
+        catch(Exception e)
+        {
+            e.printStackTrace();
+        }
+		String jdbc_url = p.getProperty("OracleURL");
+		String user = p.getProperty("OracleUser");
+		String pwd = p.getProperty("OraclePwd");
+        
+        try(Connection con = DriverManager.getConnection(jdbc_url, user, pwd))
         {
              /* Type 4 Driver URL */
             // System.out.println(con.getClass().getName());

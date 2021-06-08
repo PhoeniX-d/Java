@@ -1,8 +1,25 @@
 import java.sql.*;
 public class OracleToMysqlDemo {
     public static void main(String[] args) throws SQLException {
-        Connection con1 = DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:XE", "xe", "xe");
-        Connection con2 = DriverManager.getConnection("jdbc:mysql://localhost:3306/jdbcdb", "root", "");
+        java.util.Properties p = new java.util.Properties();		
+		try
+        {
+            java.io.FileInputStream fis = new java.io.FileInputStream(".\\..\\..\\db.properties");
+            p.load(fis);
+        }
+        catch(Exception e)
+        {
+            e.printStackTrace();
+        }
+		String jdbc_url1 = p.getProperty("OracleURL");
+		String user1 = p.getProperty("OracleUser");
+		String pwd1 = p.getProperty("OraclePwd");
+        String jdbc_url2 = p.getProperty("MysqlURL");
+        String user2 = p.getProperty("MysqlUser");
+        String pwd2 = p.getProperty("MysqlPwd");
+        
+        Connection con1 = DriverManager.getConnection(jdbc_url1, user1, pwd1);
+        Connection con2 = DriverManager.getConnection(jdbc_url2, user2, pwd2);
         Statement st1 = con1.createStatement();
         Statement st2 = con2.createStatement();
 
