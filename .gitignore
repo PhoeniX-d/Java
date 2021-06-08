@@ -1,3 +1,6 @@
 *.class
 *.bak
 *.txt
+*.jpg
+*.jpge
+*.properties
