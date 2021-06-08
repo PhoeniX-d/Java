@@ -16,7 +16,7 @@ public class DateInsertDemo1 {
             System.out.print("Enter DOJ(dd-mm-yyyy)\t:");
             String doj = sc.next();
 
-            SimpleDateFormat sdf = new SimpleDateFormat("dd-MM-yyyy");
+            SimpleDateFormat sdf = new SimpleDateFormat("dd-m-yyyy");
             java.util.Date udate = sdf.parse(doj);
             long l = udate.getTime();
             java.sql.Date sdate = new java.sql.Date(l);

@@ -1,8 +1,8 @@
 import java.util.*;
 import java.sql.*;
-import java.text.*;
 
-public class DateInsertDemo1 {
+
+public class DateInsertDemo2 {
     public static void main(String[] args) {
         //String driver = "oracle.jdbc.OracleDriver";
         String jdbcurl = "jdbc:oracle:thin:@localhost:1521:XE";
@@ -13,13 +13,10 @@ public class DateInsertDemo1 {
         {
             System.out.print("Enter person name\t:");
             String name = sc.next();
-            System.out.print("Enter DOJ(dd-mm-yyyy)\t:");
+            System.out.print("Enter DOJ(yyyy-MM-dd)\t:");
             String doj = sc.next();
 
-            SimpleDateFormat sdf = new SimpleDateFormat("dd-MM-yyyy");
-            java.util.Date udate = sdf.parse(doj);
-            long l = udate.getTime();
-            java.sql.Date sdate = new java.sql.Date(l);
+            java.sql.Date sdate = java.sql.Date.valueOf(doj);
             String query = "insert into users values(?, ?)";
             PreparedStatement pst = con.prepareStatement(query);
             pst.setString(1, name);
