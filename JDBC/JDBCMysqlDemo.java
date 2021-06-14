@@ -2,14 +2,20 @@ import java.sql.*;
 
 public class JDBCMysqlDemo {
 	public static void main(String[] args) throws Exception {
-		// String driver="com.mysql.jdbc.Driver";
-		String jdbc_url = "jdbc:mysql://localhost:3306/jdbcdb";
-		String user = "root";
-		String pwd = "";
+		java.util.Properties p = new java.util.Properties();
+        try {
+            java.io.FileInputStream fis = new java.io.FileInputStream(".\\..\\..\\db.properties");
+            p.load(fis);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        String jdbc_url = p.getProperty("MysqlURL");
+        String user = p.getProperty("MysqlUser");
+        String pwd  = p.getProperty("MysqlPwd");
 
 		try (Connection con = DriverManager.getConnection(jdbc_url, user, pwd)) {
 			Statement st = con.createStatement();
-			String sqlQuery = "select * from employee";
+			String sqlQuery = "select * from employees";
 			// String sqlQuery="select * from employee where sal > 12000";
 			boolean flag = false;
 			// System.out.println(st.executeUpdate(sqlQuery));
