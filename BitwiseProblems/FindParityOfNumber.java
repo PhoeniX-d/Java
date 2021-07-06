@@ -1,5 +1,5 @@
 /*
-*   Program to find position of only set bit of a number
+*   Program to find parity of a number
 */
 import java.util.Scanner;
 class FindParityOfNumber
@@ -21,7 +21,7 @@ class FindParityOfNumber
 
             /* Approach 2 By Brian Karnighan's Bit Counting */
             parity = !parity;
-            num = num & (num - 1);
+            num = num & (num - 1);;
         }
         if(parity)
             System.out.println("Number has odd parity");
