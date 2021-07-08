@@ -1,6 +1,22 @@
 import java.util.Scanner;
 import java.io.*;
 
+class Bitwise
+{
+    public static void main(String args[])
+    {
+        Scanner sc = new Scanner(System.in);
+        int iNum1, iNum2, iRet;
+        System.out.print("Enter the number 1:\t");
+        iNum1 = sc.nextInt();
+        System.out.print("Enter the number 2:\t");
+        iNum2 = sc.nextInt();
+        iRet = BitwiseSolution.gen(iNum1, iNum2);
+        System.out.println("Result is:\t" + iRet);
+        sc.close();
+    }
+}
+
 class BitwiseSolution
 {
     public static int gen(int iNum1, int iNum2)
@@ -19,21 +35,5 @@ class BitwiseSolution
         iNo2 = iMask2 & iNum2;
         iNum = iNo1 | iNo2;
         return iNum;
-    }
-}
-
-class Bitwise
-{
-    public static void main(String args[])
-    {
-        Scanner sc = new Scanner(System.in);
-        int iNum1, iNum2, iRet;
-        System.out.print("Enter the number 1:\t");
-        iNum1 = sc.nextInt();
-        System.out.print("Enter the number 2:\t");
-        iNum2 = sc.nextInt();
-        iRet = BitwiseSolution.gen(iNum1, iNum2);
-        System.out.println("Result is:\t" + iRet);
-        sc.close();
     }
 }
