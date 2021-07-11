@@ -1,12 +1,32 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <web-app>
 	<servlet>
-		<servlet-name>ServletDemo</servlet-name>
-		<servlet-class>FirstServlet</servlet-class>
+		<servlet-name>ServletDemo1</servlet-name>
+		<servlet-class>ServletByServlet</servlet-class>
 	</servlet>
-
+	
 	<servlet-mapping>
-		<servlet-name>ServletDemo</servlet-name>
-		<url-pattern>/test</url-pattern>
+		<servlet-name>ServletDemo1</servlet-name>
+		<url-pattern>/test1</url-pattern>
+	</servlet-mapping>
+	
+	<servlet>
+		<servlet-name>ServletDemo2</servlet-name>
+		<servlet-class>ServletByGenericServlet</servlet-class>
+	</servlet>
+	
+	<servlet-mapping>
+		<servlet-name>ServletDemo2</servlet-name>
+		<url-pattern>/test2</url-pattern>
+	</servlet-mapping>
+	
+	<servlet>
+		<servlet-name>ServletDemo3</servlet-name>
+		<servlet-class>ServletByHttpServlet</servlet-class>
+	</servlet>
+	
+	<servlet-mapping>
+		<servlet-name>ServletDemo3</servlet-name>
+		<url-pattern>/test3</url-pattern>
 	</servlet-mapping>
 </web-app>
