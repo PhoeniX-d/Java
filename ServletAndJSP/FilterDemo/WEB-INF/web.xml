@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app>
+	<display-name>FilterDemo</display-name>
+	<welcome-file-list>
+		<welcome-file>index.html</welcome-file>
+	</welcome-file-list>	
+	<filter>
+		<filter-name>filter</filter-name>
+		<filter-class>DataFilter</filter-class>
+	</filter>
+	<filter-mapping>
+		<filter-name>filter</filter-name>
+		<url-pattern>/reg</url-pattern>
+	</filter-mapping>
+	
+	<servlet>
+		<servlet-name>servlet</servlet-name>
+		<servlet-class>RegServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>servlet</servlet-name>
+		<url-pattern>/reg</url-pattern>
+	</servlet-mapping>
+</web-app>
