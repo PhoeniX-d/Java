@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app>
+	<display-name>JSP Implicit Objects Application</display-name>
+	<context-param>
+		<param-name>name</param-name>
+		<param-value>scott</param-value>
+	</context-param>
+	<servlet>
+		<servlet-name>DemoJSP</servlet-name>
+		<jsp-file>/config.jsp</jsp-file>
+		<init-param>
+			<param-name>State</param-name>
+			<param-value>Maharashtra</param-value>
+		</init-param>
+	</servlet>
+
+	<servlet-mapping>
+		<servlet-name>DemoJSP</servlet-name>
+		<url-pattern>/test</url-pattern>
+	</servlet-mapping>
+</web-app>

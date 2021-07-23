@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app>
+	<welcome-file-list>
+		<welcome-file>login.html</welcome-file>
+	</welcome-file-list>
+	<filter>
+		<filter-name>bad</filter-name>
+		<filter-class>controller.BadWordFilter</filter-class>
+	</filter>
+
+	<filter-mapping>
+		<filter-name>bad</filter-name>
+		<servlet-name>controller.TargetServlet</servlet-name>
+	</filter-mapping>
+
+	<servlet>
+		<servlet-name>target</servlet-name>
+		<servlet-class>controller.TargetServlet</servlet-class>
+	</servlet>
+
+	<servlet-mapping>
+		<servlet-name>target</servlet-name>
+		<url-pattern>/test1</url-pattern>
+	</servlet-mapping>
+</web-app>

@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app>
+	<welcome-file-list>
+		<welcome-file>index.html</welcome-file>
+	</welcome-file-list>
+	<servlet>
+		<servlet-name>configservlet</servlet-name>
+		<servlet-class>controller.ServletConfigDemo</servlet-class>
+		<init-param>
+			<param-name>driverClass</param-name>
+			<param-value>oracle.jdbc.OracleDriver</param-value>
+		</init-param>
+		<init-param>
+			<param-name>url</param-name>
+			<param-value>jdbc:oracle:thin:@localhost:1521:XE</param-value>
+		</init-param>
+		<init-param>
+			<param-name>username</param-name>
+			<param-value>xe</param-value>
+		</init-param>
+		<init-param>
+			<param-name>password</param-name>
+			<param-value>xe</param-value>
+		</init-param>
+	</servlet>
+	
+	<servlet-mapping>
+		<servlet-name>configservlet</servlet-name>
+		<url-pattern>/config</url-pattern>
+	</servlet-mapping>
+</web-app>
