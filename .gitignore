@@ -4,4 +4,7 @@
 *.jpg
 *.jpge
 *.properties
+.settings
+.classpath
+.project
 .*
