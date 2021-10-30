@@ -1,0 +1,3 @@
+module moduleX {
+    exports packX;   
+}
