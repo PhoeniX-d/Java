@@ -8,7 +8,7 @@ public class SelectAllRowsDemo {
 		String jdbc_url = p.getProperty("OracleURL");
 		String user = p.getProperty("OracleUser");
 		String pwd = p.getProperty("OraclePwd");
-
+		System.out.println(jdbc_url + user + pwd);
 		try (Connection con = DriverManager.getConnection(jdbc_url, user, pwd)) {
 			Statement st = con.createStatement();
 			String sqlQuery = "select * from employee";
@@ -23,7 +23,7 @@ public class SelectAllRowsDemo {
 				flag = true;
 				// System.out.println(rs.getInt("eid")+"\t"+rs.getString("ename")+"\t"+rs.getString("city")+"\t"+rs.getFloat("sal"));
 				System.out.println(
-						rs.getInt(1) + "\t" + rs.getString(2) + "\t" + rs.getString(3) + "\t" + rs.getFloat(4));
+						rs.getInt(1) + "\t" + rs.getString(2) + "\t" + rs.getString(3) /*+ "\t" + rs.getFloat(4)*/);
 			}
 			if (flag == false) {
 				System.out.println("No Records found");
